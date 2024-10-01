@@ -4,8 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Callsign quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    
+    <button id="switch" onclick="switchmodes()">Switch</button>
+    <div id="container">
+        <div id="header">LHBP</div>
+        <div id="inputMenu">
+            <div id="CallsignField">
+                <label for="Callsign">Callsign: </label>
+                <input type="text" id="Callsign">
+            </div>
+            <div id="IcaoField">
+                <label for="ICAOcode">ICAO code: </label>
+                <input type="text" id="ICAOcode">
+            </div>
+
+            <select id="country">
+                <option value="Empty">(Empty)</option>
+                <option value="Hungary">Hungary</option>
+                <option value="Romania">Romania</option>
+            </select>
+
+            <button id="skip" onclick="skip()">Skip</button>
+            <button id="submit" onclick="showNext()">Next</button>
+            
+        </div>
+    </div>
+
+    <script src="javascript.js"></script>
 </body>
 </html>
