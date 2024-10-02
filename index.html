@@ -13,25 +13,36 @@
         <div id="header">LHBP</div>
         <div id="inputMenu">
             <div id="CallsignField">
-                <label for="Callsign">Callsign: </label>
+                <label for="Callsign" id="cls">Callsign: </label>
                 <input type="text" id="Callsign">
             </div>
             <div id="IcaoField">
-                <label for="ICAOcode">ICAO code: </label>
+                <label for="ICAOcode" id="Icaolabel">ICAO code: </label>
                 <input type="text" id="ICAOcode">
             </div>
 
-            <select id="country">
-                <option value="Empty">(Empty)</option>
-                <option value="Hungary">Hungary</option>
-                <option value="Romania">Romania</option>
-            </select>
-
-            <button id="skip" onclick="skip()">Skip</button>
-            <button id="submit" onclick="showNext()">Next</button>
+            <div id="country">
+                <label id="count">Country: </label>
+                <div class="dropdown">
+                    <input type="text" class="dropdown-input" placeholder="Válassz egy opciót..." oninput="filterOptions()">
+                    <div class="dropdown-list" id="dropdownList">
+                        <div class="dropdown-item" onclick="selectOption(this)">Hungary</div>
+                        <div class="dropdown-item" onclick="selectOption(this)">Opció 2</div>
+                        <div class="dropdown-item" onclick="selectOption(this)">Opció 3</div>
+                        <div class="dropdown-item" onclick="selectOption(this)">Opció 4</div>
+                        <div class="dropdown-item" onclick="selectOption(this)">Opció 5</div>
+                    </div>
+                </div>
+            </div>
             
         </div>
+        <div id="footer">
+            <div id="score">xx</div>
+            <button id="skip" onclick="skip()">Skip</button>
+            <button id="submit" onclick="showNext()">Next</button>
+        </div>
     </div>
+    <div id="refresh" onclick="refresh()">Refresh</div>
 
     <script src="javascript.js"></script>
 </body>

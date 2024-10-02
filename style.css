@@ -21,6 +21,20 @@ body{
     align-items: center;
     cursor: pointer;
 }
+#refresh{
+    display: flex;
+    position: absolute;
+    bottom: 5vh;
+    right: 5vh;
+    width: 8vw;
+    height: 8vh;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
 #container{
     height: 60vh;
     width: 40vw;
@@ -38,4 +52,100 @@ body{
 }
 #IcaoField{
     display: none;
+    margin-bottom: 2vh;
+}
+#inputMenu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: 40vh;
+    flex-direction: column;
+}
+#footer{
+    width: 40vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#footer button{
+    height: 3vh;
+    width: 5vw;
+}
+#score{
+    margin-left: 2vw;
+}
+#submit{
+    margin-right: 2vw;
+}
+.dropdown {
+    position: relative;
+    width: 140px;
+    border: 1px solid black;
+    border-radius: 3px;
+    height: 36px;
+}
+
+.dropdown-input {
+    width: 140px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 3px;
+}
+
+.dropdown-list {
+    display: none;
+    position: absolute;
+    width: 140px;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    background-color: white;
+    z-index: 1;
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+#CallsignField,
+#country{
+    display: flex;
+    justify-content: center;
+    width: 30vw;
+    height: 35px;
+}
+#ICAOcode{
+    justify-content: center;
+    width: 140px;
+    height: 35px;
+    padding: 0;
+    padding-block: 0;
+    padding-inline: 0;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+#CallsignField{
+    margin-bottom: 2vh;
+}
+#Callsign{
+    width: 140px;
+    padding: 0;
+    padding-block: 0;
+    padding-inline: 0;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+#cls,
+#count,
+#Icaolabel{
+    display: flex;
+    width: 80px;
+    align-items: center;
 }
