@@ -81,34 +81,59 @@ body{
 }
 .dropdown {
     position: relative;
-    width: 140px;
+    width: 200px;
     border: 1px solid black;
     border-radius: 3px;
     height: 36px;
 }
 
 .dropdown-input {
-    width: 140px;
+    width: 200px;
     padding: 10px;
     box-sizing: border-box;
     border: 0;
     border-radius: 3px;
 }
-
+#arrowdown{
+    position: absolute;
+    right: 0;
+    height: 80%;
+    top: 50%;
+    transform: translateY(-50%);
+}
 .dropdown-list {
     display: none;
     position: absolute;
-    width: 140px;
+    width: 200px;
     max-height: 150px;
     overflow-y: auto;
     border: 1px solid #ccc;
     background-color: white;
     z-index: 1;
 }
-
 .dropdown-item {
+    display: flex;
+    align-items: center;
     padding: 10px;
     cursor: pointer;
+    position: relative;
+}
+.dropdown-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* A szegély az elem alján lesz */
+    left: 5%; /* A szélesség 80%-ának megfelelő kezdési pont */
+    width: 90%; /* A szegély szélessége a div 80%-a */
+    height: 1px; /* A szegély vastagsága */
+    background-color: #e0e0e0; /* Szürke színű szegély */
+}
+
+.dropdown-item .iconify {
+    margin-right: 10px;
+}
+
+.country-name {
+    margin-left: 5px;
 }
 
 .dropdown-item:hover {
@@ -123,7 +148,7 @@ body{
 }
 #ICAOcode{
     justify-content: center;
-    width: 140px;
+    width: 200px;
     height: 35px;
     padding: 0;
     padding-block: 0;
@@ -135,17 +160,37 @@ body{
     margin-bottom: 2vh;
 }
 #Callsign{
-    width: 140px;
+    width: 190px;
     padding: 0;
     padding-block: 0;
     padding-inline: 0;
     border: 1px solid black;
     border-radius: 3px;
+    padding-left: 10px;
 }
 #cls,
 #count,
 #Icaolabel{
     display: flex;
     width: 80px;
+    align-items: center;
+}
+.hintContainer{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 100px;
+    width: 160px;
+    height: 120px;
+    background-color: white;
+}
+.HintBox{
+    width: 160px;
+    height: 40px;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }

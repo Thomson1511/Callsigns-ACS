@@ -6,11 +6,17 @@
     <title>Callsign quiz</title>
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 </head>
 <body>
+    <div class="hintContainer">
+        <div id="IcaoHint" class="HintBox"></div>
+        <div id="CallsignHint" class="HintBox"></div>
+        <div id="CoutryHint" class="HintBox"></div>
+    </div>
     <button id="switch" onclick="switchmodes()">Switch</button>
     <div id="container">
-        <div id="header">LHBP</div>
+        <div id="header">valami</div>
         <div id="inputMenu">
             <div id="CallsignField">
                 <label for="Callsign" id="cls">Callsign: </label>
@@ -25,12 +31,29 @@
                 <label id="count">Country: </label>
                 <div class="dropdown">
                     <input type="text" class="dropdown-input" placeholder="Válassz egy opciót..." oninput="filterOptions()">
+                    <div id="dropdownarrow"><span class="iconify" id="arrowdown" 
+                    data-icon="material-symbols:arrow-drop-down" style="width: 30px;"></span></div>
                     <div class="dropdown-list" id="dropdownList">
-                        <div class="dropdown-item" onclick="selectOption(this)">Hungary</div>
-                        <div class="dropdown-item" onclick="selectOption(this)">Opció 2</div>
-                        <div class="dropdown-item" onclick="selectOption(this)">Opció 3</div>
-                        <div class="dropdown-item" onclick="selectOption(this)">Opció 4</div>
-                        <div class="dropdown-item" onclick="selectOption(this)">Opció 5</div>
+                        <div class="dropdown-item" onclick="selectOption(this)">
+                            <span class="iconify" data-icon="flag:hu-4x3" style="width: 30px;"></span>
+                            <span class="country-name">Hungary</span>
+                        </div>
+                        <div class="dropdown-item" onclick="selectOption(this)">
+                            <span class="iconify" data-icon="flag:us-4x3" style="width: 30px;"></span>
+                            <span class="country-name">USA</span>
+                        </div>
+                        <div class="dropdown-item" onclick="selectOption(this)">
+                            <span class="iconify" data-icon="flag:kr-4x3" style="width: 30px;"></span>
+                            <span class="country-name">Republic of Korea</span>
+                        </div>
+                        <div class="dropdown-item" onclick="selectOption(this)">
+                            <span class="iconify" data-icon="flag:sk-4x3" style="width: 30px;"></span>
+                            <span class="country-name">Slovakia</span>
+                        </div>
+                        <div class="dropdown-item" onclick="selectOption(this)">
+                            <span class="iconify" data-icon="flag:ro-4x3" style="width: 30px;"></span>
+                            <span class="country-name">Romania</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -38,7 +61,7 @@
         </div>
         <div id="footer">
             <div id="score">xx</div>
-            <button id="skip" onclick="skip()">Skip</button>
+            <button id="hint" onclick="hint()">Hint</button>
             <button id="submit" onclick="showNext()">Next</button>
         </div>
     </div>
