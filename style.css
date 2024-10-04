@@ -108,7 +108,7 @@ body{
     max-height: 150px;
     overflow-y: auto;
     border: 1px solid #ccc;
-    background-color: white;
+    background-color: rgb(254, 254, 236);
     z-index: 1;
 }
 .dropdown-item {
@@ -137,7 +137,7 @@ body{
 }
 
 .dropdown-item:hover {
-    background-color: #f1f1f1;
+    background-color: #c6c6c6;
 }
 #CallsignField,
 #country{
