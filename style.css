@@ -79,6 +79,9 @@ body{
     height: 4vh;
     width: 5vw;
     background-color: #36478f;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
 }
 #score{
     margin-left: 2vw;
