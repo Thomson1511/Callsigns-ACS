@@ -282,6 +282,7 @@ const CoutryHint = document.getElementById("CoutryHint");
 const score = document.getElementById("score");
 const errorstxt = document.getElementById("txt");
 let errors = 0;
+let ErrorList = [];
 let countryName = '';
 
 //shuffle
@@ -413,6 +414,7 @@ function showNext(){
     }
     else{
         errors += 1;
+        ErrorList.push(IcaoCallsigns.icaoc + " - " + IcaoCallsigns.calls + " - " + IcaoCallsigns.contry)
         errorstxt.innerHTML = errors;
     }
 
@@ -485,6 +487,14 @@ function done(){
     errors = 0;
     errorstxt.innerHTML = errors;
     showCalls();
+    if(ErrorList.length < 1){
+        alert('Congratulations! You have completed all the constraints.');
+    }
+    else{
+        alert('Nice try!' + '\nYour mistakes:\n' + ErrorList.join("\n"));
+        ErrorList.length = 0;
+        errors = 0;
+    }
 }
 
 function refresh(){
