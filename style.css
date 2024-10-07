@@ -211,7 +211,7 @@ body{
         top: initial;
         transform: initial;
         left: initial;
-        bottom: 5vh;
+        bottom: 20px;
     }
     #switch{
         left: 5vh;
