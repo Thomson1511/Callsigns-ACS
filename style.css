@@ -204,3 +204,42 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+@media only screen and (max-width: 767px){
+    .hintContainer{
+        display: initial;
+        top: initial;
+        transform: initial;
+        left: initial;
+        bottom: 15vh;
+    }
+    #switch{
+        left: 5vh;
+        width: 20vw;
+        height: 6vh;
+    }
+    #refresh{
+        top: 5vh;
+        width: 20vw;
+        height: 6vh;
+    }
+    #container{
+        height: 50vh;
+        margin-bottom: 20vh;
+    }
+    #inputMenu{
+        height: 30vh;
+    }
+    #header,
+    #container,
+    #inputMenu,
+    #footer{
+        width: 80vw;
+    }
+    #footer button{
+        width: 20vw;
+    }
+    #CallsignField, #country{
+        width: 70vw;
+    }
+}
