@@ -143,26 +143,26 @@ let IcaoCallsigns = [
     {icaoc: "LDX",	calls: "Lauda Rush",	contry: "Austria"},
     {icaoc: "LGL",	calls: "Luxair",	contry: "Luxembourg"},
     {icaoc: "LMU",	calls: "Almasria",	contry: "Egypt"},
-    {icaoc: "LOT",	calls: "Lot	",	contry: "Poland"},
-    {icaoc: "LZB",	calls: "Flying Bulgaria	",	contry: "Bulgaria"},
-    {icaoc: "MAC",	calls: "Arabia Maroc	",	contry: "Morocco"},
-    {icaoc: "MAE",	calls: "Mali Airexpress	",	contry: "Austria"},
-    {icaoc: "MAS",	calls: "Malaysian	",	contry: "Malaysia"},
-    {icaoc: "MEA",	calls: "Cedar Jet	",	contry: "Lebanon"},
-    {icaoc: "MHV",	calls: "Snowcap	",	contry: "Germany"},
-    {icaoc: "MLD",	calls: "Air Moldova	",	contry: "Moldova"},
-    {icaoc: "MMZ",	calls: "Euroatlantic	",	contry: "Portugal"},
-    {icaoc: "MNB",	calls: "Black Sea	",	contry: "Turkey"},
-    {icaoc: "MPH",	calls: "Martinair	",	contry: "Netherlands"},
-    {icaoc: "MSC",	calls: "Air Cairo	",	contry: "Egypt"},
-    {icaoc: "MSR",	calls: "Egyptair	",	contry: "Egypt"},
-    {icaoc: "MSX",	calls: "Egyptair Cargo	",	contry: "Egypt"},
-    {icaoc: "MTL",	calls: "Mitavia	",	contry: "Latvia"},
-    {icaoc: "MYX",	calls: "Tallinn Cat	",	contry: "Estonia"},
-    {icaoc: "NCR",	calls: "National Cargo	",	contry: "USA"},
-    {icaoc: "NJE",	calls: "Fraction	",	contry: "Portugal"},
-    {icaoc: "NPT",	calls: "Neptune	",	contry: "UK"},
-    {icaoc: "NOS",	calls: "Moonflower	",	contry: "Italy"},
+    {icaoc: "LOT",	calls: "Lot",	contry: "Poland"},
+    {icaoc: "LZB",	calls: "Flying Bulgaria",	contry: "Bulgaria"},
+    {icaoc: "MAC",	calls: "Arabia Maroc",	contry: "Morocco"},
+    {icaoc: "MAE",	calls: "Mali Airexpress",	contry: "Austria"},
+    {icaoc: "MAS",	calls: "Malaysian",	contry: "Malaysia"},
+    {icaoc: "MEA",	calls: "Cedar Jet",	contry: "Lebanon"},
+    {icaoc: "MHV",	calls: "Snowcap",	contry: "Germany"},
+    {icaoc: "MLD",	calls: "Air Moldova",	contry: "Moldova"},
+    {icaoc: "MMZ",	calls: "Euroatlantic",	contry: "Portugal"},
+    {icaoc: "MNB",	calls: "Black Sea",	contry: "Turkey"},
+    {icaoc: "MPH",	calls: "Martinair",	contry: "Netherlands"},
+    {icaoc: "MSC",	calls: "Air Cairo",	contry: "Egypt"},
+    {icaoc: "MSR",	calls: "Egyptair",	contry: "Egypt"},
+    {icaoc: "MSX",	calls: "Egyptair Cargo",	contry: "Egypt"},
+    {icaoc: "MTL",	calls: "Mitavia",	contry: "Latvia"},
+    {icaoc: "MYX",	calls: "Tallinn Cat",	contry: "Estonia"},
+    {icaoc: "NCR",	calls: "National Cargo",	contry: "USA"},
+    {icaoc: "NJE",	calls: "Fraction",	contry: "Portugal"},
+    {icaoc: "NPT",	calls: "Neptune",	contry: "UK"},
+    {icaoc: "NOS",	calls: "Moonflower",	contry: "Italy"},
     {icaoc: "NOZ",	calls: "Nordic",	contry: "Norway"},
     {icaoc: "NSZ",	calls: "Rednose",	contry: "Norway"},
     {icaoc: "NTF",	calls: "Netflight",	contry: "Czechia"},
@@ -333,13 +333,15 @@ function filterOptions() {
         const option = options[i];
         const countryName = option.querySelector('.country-name').textContent.toLowerCase();
         
-        if (countryName.indexOf(filter) > -1) {
+        // Szűrés csak a filter-rel kezdődő országokra
+        if (countryName.startsWith(filter)) {
             option.style.display = "";
         } else {
             option.style.display = "none";
         }
     }
 }
+
 
 document.addEventListener("DOMContentLoaded", function() {
     showCalls();
@@ -422,6 +424,11 @@ function clear(){
     IcaoHint.innerHTML = "";
     CoutryHint.innerHTML = "";
     CallsignHint.innerHTML = "";
+
+    const options = dropdownList.getElementsByClassName('dropdown-item');
+    for (let i = 0; i < options.length; i++) {
+        options[i].style.display = "";
+    }
 }
 
 function previousHint(){
@@ -474,4 +481,12 @@ function done(){
     currentCallsignIndex = 0;
     nextCallsignIndex = 1;
     showCalls();
+}
+
+function refresh(){
+    IcaoCallsigns = shuffle(IcaoCallsigns);
+    currentCallsignIndex = 0;
+    nextCallsignIndex = 1;
+    showCalls();
+    clear();
 }

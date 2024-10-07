@@ -1,3 +1,9 @@
+*{
+    font-family: "Noto Sans Cherokee", sans-serif;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
 body{
     background-color: black;
     display: flex;
@@ -70,8 +76,9 @@ body{
     align-items: center;
 }
 #footer button{
-    height: 3vh;
+    height: 4vh;
     width: 5vw;
+    background-color: #36478f;
 }
 #score{
     margin-left: 2vw;
@@ -84,7 +91,7 @@ body{
     width: 200px;
     border: 1px solid black;
     border-radius: 3px;
-    height: 36px;
+    height: 38px;
 }
 
 .dropdown-input {
@@ -144,12 +151,12 @@ body{
     display: flex;
     justify-content: center;
     width: 30vw;
-    height: 35px;
+    height: 37px;
 }
 #ICAOcode{
     justify-content: center;
     width: 200px;
-    height: 35px;
+    height: 37px;
     padding: 0;
     padding-block: 0;
     padding-inline: 0;
@@ -172,7 +179,7 @@ body{
 #count,
 #Icaolabel{
     display: flex;
-    width: 80px;
+    width: 90px;
     align-items: center;
 }
 .hintContainer{
