@@ -85,6 +85,8 @@ body{
     border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 #score{
     margin-left: 2vw;
