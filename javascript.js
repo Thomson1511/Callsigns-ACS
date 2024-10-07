@@ -280,6 +280,8 @@ const IcaoHint = document.getElementById("IcaoHint");
 const CallsignHint = document.getElementById("CallsignHint");
 const CoutryHint = document.getElementById("CoutryHint");
 const score = document.getElementById("score");
+const errorstxt = document.getElementById("txt");
+let errors = 0;
 let countryName = '';
 
 //shuffle
@@ -372,6 +374,7 @@ function switchmodes(){
 function showCalls(){
     const currentCallsign = IcaoCallsigns[currentCallsignIndex];
     score.innerHTML = (nextCallsignIndex + "/" + IcaoCallsigns.length);
+    errorstxt.innerHTML = errors;
 
     if(mode === "basic"){
         headerContent.innerHTML = currentCallsign.icaoc;
@@ -412,6 +415,8 @@ function showNext(){
     }
     else{
         alert("not good");
+        errors += 1;
+        errorstxt.innerHTML = errors;
     }
 
 }
@@ -480,6 +485,8 @@ function done(){
     alert("done");
     currentCallsignIndex = 0;
     nextCallsignIndex = 1;
+    errors = 0;
+    errorstxt.innerHTML = errors;
     showCalls();
 }
 
@@ -487,6 +494,7 @@ function refresh(){
     IcaoCallsigns = shuffle(IcaoCallsigns);
     currentCallsignIndex = 0;
     nextCallsignIndex = 1;
+    errors = 0;
     showCalls();
     clear();
 }
