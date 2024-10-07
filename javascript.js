@@ -39,7 +39,7 @@ let IcaoCallsigns = [
     {icaoc: "BBC",	calls: "Bangladesh",	contry: "Bangladesh"},
     {icaoc: "BBD",	calls: "Blue Cargo",	contry: "Iceland"},
     {icaoc: "BBG",	calls: "Bluebird",	contry: "Greece"},
-    {icaoc: "BCS",	calls: "EuroTrans",	contry: "Germany"},
+    {icaoc: "BCS",	calls: "Postman",	contry: "Germany"},
     {icaoc: "BEL",	calls: "Beeline",	contry: "Belgium"},
     {icaoc: "BGH",	calls: "Balkan Holidays",	contry: "Bulgaria"},
     {icaoc: "BLA",	calls: "Blue Air",	contry: "Romania"},
