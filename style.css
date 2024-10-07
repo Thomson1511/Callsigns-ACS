@@ -243,13 +243,13 @@ body{
         width: 70vw;
     }
     #Callsign{
-        width: 170px;
+        width: 150px;
     }
     #ICAOcode,
     .dropdown,
     .dropdown-input,
     .dropdown-item  {
-        width: 180px;
+        width: 160px;
     }
-    
+
 }
