@@ -282,4 +282,14 @@ body{
     #CallsignField, #country{
         width: 80vw;
     }
+    #errors{
+        top: 5vh;
+        transform: initial;
+        width: 20vw;
+        height: 6vh;
+        right: initial;
+    }
+    #errorsheader{
+        width: 14vw;
+    }
 }

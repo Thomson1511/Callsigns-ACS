@@ -401,20 +401,17 @@ function showNext(){
         }
         else{
             if(checkCountry()){
-                alert("if")
                 previousHint()
                 CoutryHint.style.backgroundColor = "red";
                 done();
             }
             else{
-                alert("else")
                 done();
                 clear();
             }
         }
     }
     else{
-        alert("not good");
         errors += 1;
         errorstxt.innerHTML = errors;
     }
