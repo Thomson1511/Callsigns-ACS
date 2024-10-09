@@ -508,6 +508,7 @@ function done(){
     nextCallsignIndex = 1;
     errors = 0;
     errorstxt.innerHTML = errors;
+    refresh();
     showCalls();
     if(ErrorList.length < 1){
         alert('Congratulations! You have completed all the constraints.');
@@ -517,7 +518,6 @@ function done(){
         ErrorList.length = 0;
         errors = 0;
     }
-    refresh();
 }
 
 function refresh(){
