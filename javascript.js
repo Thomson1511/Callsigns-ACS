@@ -525,11 +525,11 @@ function refresh(){
 
     if (selectFromValue === "" || selectToValue === "") {
         ShuffledCallsigns = shuffle(IcaoCallsigns);
-        console.log("HALO")
+        //console.log("HALO")
     
     } else{
         filterAndShuffle();
-        console.log("ELSE")
+        //console.log("ELSE")
     }
     currentCallsignIndex = 0;
     nextCallsignIndex = 1;

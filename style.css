@@ -275,6 +275,12 @@ body{
         transform: initial;
         left: initial;
         bottom: 20px;
+        right: 20px;
+    }
+    #selector{
+        top: initial;
+        bottom: 50px;
+        left: 50px;
     }
     #switch{
         left: 5vh;
