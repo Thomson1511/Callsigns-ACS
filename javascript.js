@@ -517,6 +517,7 @@ function done(){
         ErrorList.length = 0;
         errors = 0;
     }
+    refresh();
 }
 
 function refresh(){
