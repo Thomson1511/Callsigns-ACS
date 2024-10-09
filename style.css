@@ -6,7 +6,10 @@
 }
 input {
     box-sizing: border-box;
-  }  
+  }
+  input::placeholder{
+    font-size: 12px;
+  }
 body{
     background-color: black;
     display: flex;
@@ -34,6 +37,7 @@ body{
 }
 #selector label{
     font-size: 12px;
+    margin-bottom: 2px;
 }
 #switch{
     display: flex;

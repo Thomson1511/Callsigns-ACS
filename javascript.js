@@ -299,6 +299,8 @@ function filterAndShuffle() {
     ShuffledCallsigns = shuffle(filteredCallsigns);
     currentCallsignIndex = 0;
     nextCallsignIndex = 1;
+    errors = 0;
+    errorstxt.innerHTML = errors;
     clear();
 
     // Output the shuffled list (or you can use it further as needed)
