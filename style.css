@@ -16,6 +16,25 @@ body{
     width: 100vw;
     margin: 0;
 }
+#selector{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 120px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+}
+#selector input{
+    width: 40px;
+}
+#selector label{
+    font-size: 12px;
+}
 #switch{
     display: flex;
     position: absolute;

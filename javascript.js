@@ -4,8 +4,6 @@ let IcaoCallsigns = [
     {icaoc: "ABD",	calls: "Atlanta",	contry: "Iceland"},
     {icaoc: "ABP",	calls: "B-air",	contry: "Czechia"},
     {icaoc: "ABR",	calls: "Contract",	contry: "Ireland"},
-
-    //ellenőrizni
     {icaoc: "ABW",	calls: "AirBridge Cargo",	contry: "Russian Federation"},
     {icaoc: "ABY",	calls: "Arabia",	contry: "UAE"},
     {icaoc: "ACA",	calls: "Air Canada",	contry: "Canada"},
@@ -261,15 +259,11 @@ let IcaoCallsigns = [
     {icaoc: "WRC",	calls: "Wind Rose",	contry: "Ukraine"},
     {icaoc: "WUK",	calls: "Wizz Go",	contry: "UK"},
     {icaoc: "WZZ",	calls: "Wizz Air",	contry: "Hungary"}
-    
 ];
 
 document.addEventListener('keydown', function (event) {
     if (event.key === 'Enter'){
         showNext();
-    }
-    if (event.key === '1'){
-        hint();
     }
 });
 
@@ -283,12 +277,36 @@ const score = document.getElementById("score");
 const errorstxt = document.getElementById("txt");
 let errors = 0;
 let ErrorList = [];
+ShuffledCallsigns = [];
 let countryName = '';
 
-//shuffle
+// Function to handle the filtering and shuffling of the IcaoCallsigns array
+function filterAndShuffle() {
+    // Get the selector input values
+    const selectorFrom = parseInt(document.getElementById("selectFrom").value) - 1; // Convert to zero-based index
+    const selectorTo = parseInt(document.getElementById("selectTo").value);
 
-let ShuffledCallsigns = [];
+    // Validate the input values
+    if (isNaN(selectorFrom) || isNaN(selectorTo) || selectorFrom < 0 || selectorTo > IcaoCallsigns.length || selectorFrom >= selectorTo) {
+        alert("Invalid selection range.");
+        return;
+    }
 
+    // Filter the IcaoCallsigns array based on the selector inputs
+    let filteredCallsigns = IcaoCallsigns.slice(selectorFrom, selectorTo);
+
+    // Shuffle the filtered list
+    ShuffledCallsigns = shuffle(filteredCallsigns);
+    currentCallsignIndex = 0;
+    nextCallsignIndex = 1;
+    clear();
+
+    // Output the shuffled list (or you can use it further as needed)
+    console.log(ShuffledCallsigns);
+    showCalls();
+}
+
+// Example shuffle function (already present in your code)
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -297,7 +315,8 @@ function shuffle(array) {
     return array;
 }
 
-IcaoCallsigns = shuffle(IcaoCallsigns);
+// Attach the filterAndShuffle function to the 'blur' event on the selectTo input field
+document.getElementById("selectTo").addEventListener("blur", filterAndShuffle);
 
 // Megjeleníti a lenyíló menüt, ha az inputra kattintunk
 dropdownInput.addEventListener('focus', () => {
@@ -347,7 +366,13 @@ function filterOptions() {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    showCalls();
+    if (ShuffledCallsigns.length > 0) {
+        showCalls();  // Ensure the shuffled list is used from the start
+    } else {
+        ShuffledCallsigns = shuffle(IcaoCallsigns.slice()); // Create a copy and shuffle
+        console.log("No range selected. Using all ICAO callsigns shuffled.");
+        showCalls();
+    }
 });
 
 let currentCallsignIndex = 0;
@@ -373,8 +398,8 @@ function switchmodes(){
 }
 
 function showCalls(){
-    const currentCallsign = IcaoCallsigns[currentCallsignIndex];
-    score.innerHTML = (nextCallsignIndex + "/" + IcaoCallsigns.length);
+    const currentCallsign = ShuffledCallsigns[currentCallsignIndex];
+    score.innerHTML = (nextCallsignIndex + "/" + ShuffledCallsigns.length);
     errorstxt.innerHTML = errors;
 
     if(mode === "basic"){
@@ -385,39 +410,34 @@ function showCalls(){
     }
 }
 
-function showNext(){
-    if(check()){
-        if(IcaoCallsigns.length > currentCallsignIndex + 1){
+function showNext() {
+    if (check()) {
+        if (ShuffledCallsigns.length > currentCallsignIndex + 1) {
             currentCallsignIndex += 1;
             nextCallsignIndex += 1;
             showCalls();
-            clear()
-            if(checkCountry()){
+            clear();
+            if (checkCountry()) {
                 CallsignHint.innerHTML = "";
-            }
-            else{
+            } else {
                 previousHint();
                 CoutryHint.style.backgroundColor = "red";
             }
-        }
-        else{
-            if(checkCountry()){
-                previousHint()
+        } else {
+            if (checkCountry()) {
+                previousHint();
                 CoutryHint.style.backgroundColor = "red";
                 done();
-            }
-            else{
+            } else {
                 done();
                 clear();
             }
         }
-    }
-    else{
+    } else {
         errors += 1;
-        ErrorList.push(IcaoCallsigns.icaoc + " - " + IcaoCallsigns.calls + " - " + IcaoCallsigns.contry)
+        ErrorList.push(ShuffledCallsigns[currentCallsignIndex].icaoc + " - " + ShuffledCallsigns[currentCallsignIndex].calls + " - " + ShuffledCallsigns[currentCallsignIndex].contry);
         errorstxt.innerHTML = errors;
     }
-
 }
 
 function clear(){
@@ -436,22 +456,22 @@ function clear(){
 }
 
 function previousHint(){
-    IcaoHint.innerHTML = IcaoCallsigns[currentCallsignIndex - 1].icaoc;
-    CallsignHint.innerHTML = IcaoCallsigns[currentCallsignIndex - 1].calls;
-    CoutryHint.innerHTML = IcaoCallsigns[currentCallsignIndex - 1].contry;
+    IcaoHint.innerHTML = ShuffledCallsigns[currentCallsignIndex - 1].icaoc;
+    CallsignHint.innerHTML = ShuffledCallsigns[currentCallsignIndex - 1].calls;
+    CoutryHint.innerHTML = ShuffledCallsigns[currentCallsignIndex - 1].contry;
 }
 
 function hint(){
-    IcaoHint.innerHTML = IcaoCallsigns[currentCallsignIndex].icaoc;
-    CallsignHint.innerHTML = IcaoCallsigns[currentCallsignIndex].calls;
-    CoutryHint.innerHTML = IcaoCallsigns[currentCallsignIndex].contry;
+    IcaoHint.innerHTML = ShuffledCallsigns[currentCallsignIndex].icaoc;
+    CallsignHint.innerHTML = ShuffledCallsigns[currentCallsignIndex].calls;
+    CoutryHint.innerHTML = ShuffledCallsigns[currentCallsignIndex].contry;
     CoutryHint.style.backgroundColor = "white";
 }
 
 function check(){
     const Callsign = document.getElementById("Callsign");
     const ICAOcode = document.getElementById("ICAOcode");
-    const currentCallsign = IcaoCallsigns[currentCallsignIndex];
+    const currentCallsign = ShuffledCallsigns[currentCallsignIndex];
 
     if(mode === "basic"){
         if(currentCallsign.calls.toLowerCase() === Callsign.value.toLowerCase()){
@@ -472,7 +492,7 @@ function check(){
 }
 
 function checkCountry() {
-    if(countryName.toLowerCase() === IcaoCallsigns[currentCallsignIndex - 1].contry.toLowerCase()){
+    if(countryName.toLowerCase() === ShuffledCallsigns[currentCallsignIndex - 1].contry.toLowerCase()){
         return true;
     }
     else{
