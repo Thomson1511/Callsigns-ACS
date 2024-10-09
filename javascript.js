@@ -520,7 +520,17 @@ function done(){
 }
 
 function refresh(){
-    IcaoCallsigns = shuffle(IcaoCallsigns);
+    var selectFromValue = document.getElementById('SelectFrom').value;
+    var selectToValue = document.getElementById('selectTo').value;
+
+    if (selectFromValue === "" || selectToValue === "") {
+        ShuffledCallsigns = shuffle(IcaoCallsigns);
+        console.log("HALO")
+    
+    } else{
+        filterAndShuffle();
+        console.log("ELSE")
+    }
     currentCallsignIndex = 0;
     nextCallsignIndex = 1;
     errors = 0;
