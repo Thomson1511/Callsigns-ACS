@@ -430,11 +430,9 @@ function showNext() {
                 previousHint();
                 CoutryHint.style.backgroundColor = "red";
                 done();
-                console.log("frissitett")
             } else {
                 done();
                 clear();
-                console.log("frissitett")
             }
         }
     } else {
@@ -509,7 +507,8 @@ function done(){
     nextCallsignIndex = 1;
     errors = 0;
     errorstxt.innerHTML = errors;
-    
+    showCalls();
+    filterAndShuffle();
     if(ErrorList.length < 1){
         alert('Congratulations! You have completed all the constraints.');
     }
@@ -517,9 +516,7 @@ function done(){
         alert('Nice try!' + '\nYour mistakes:\n' + ErrorList.join("\n"));
         ErrorList.length = 0;
         errors = 0;
-    }
-    refresh();
-    showCalls();
+    }  
 }
 
 function refresh(){
@@ -527,12 +524,9 @@ function refresh(){
     var selectToValue = document.getElementById('selectTo').value;
 
     if (selectFromValue === "" || selectToValue === "") {
-        ShuffledCallsigns = shuffle(IcaoCallsigns);
-        //console.log("HALO")
-    
+        ShuffledCallsigns = shuffle(IcaoCallsigns);    
     } else{
         filterAndShuffle();
-        //console.log("ELSE")
     }
     currentCallsignIndex = 0;
     nextCallsignIndex = 1;
