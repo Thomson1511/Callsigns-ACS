@@ -503,7 +503,6 @@ function checkCountry() {
 }
 
 function done(){
-    alert("done");
     currentCallsignIndex = 0;
     nextCallsignIndex = 1;
     errors = 0;
