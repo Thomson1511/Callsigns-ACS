@@ -508,6 +508,7 @@ function done(){
     errors = 0;
     errorstxt.innerHTML = errors;
     refresh();
+    console.log(ShuffledCallsigns);
     showCalls();
     if(ErrorList.length < 1){
         alert('Congratulations! You have completed all the constraints.');
