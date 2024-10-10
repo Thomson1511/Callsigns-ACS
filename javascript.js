@@ -507,8 +507,7 @@ function done(){
     nextCallsignIndex = 1;
     errors = 0;
     errorstxt.innerHTML = errors;
-    refresh();
-    console.log(ShuffledCallsigns);
+    console.log("frissitett")
     showCalls();
     if(ErrorList.length < 1){
         alert('Congratulations! You have completed all the constraints.');
