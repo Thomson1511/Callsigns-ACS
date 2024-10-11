@@ -519,6 +519,10 @@ function done(){
     }  
 }
 
+function deleteError(){
+    errors -= 1;
+}
+
 function refresh(){
     var selectFromValue = document.getElementById('SelectFrom').value;
     var selectToValue = document.getElementById('selectTo').value;

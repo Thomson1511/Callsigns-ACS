@@ -267,6 +267,10 @@ body{
     justify-content: center;
     align-items: center;
 }
+#errorRemover{
+    position: relative;
+    top: -40px;
+}
 
 @media only screen and (max-width: 767px){
     .hintContainer{
