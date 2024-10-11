@@ -521,6 +521,9 @@ function done(){
 
 function deleteError(){
     errors -= 1;
+    console.log("előtte: " + ErrorList.join("\n"))
+    ErrorList.pop();
+    console.log("utána: " + ErrorList.join("\n"))
 }
 
 function refresh(){
