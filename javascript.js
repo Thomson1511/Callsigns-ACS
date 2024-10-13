@@ -521,9 +521,10 @@ function done(){
 
 function deleteError(){
     errors -= 1;
-    console.log("előtte: " + ErrorList.join("\n"))
+    errorstxt.innerHTML = errors;
+    //console.log("előtte: " + ErrorList.join("\n"))
     ErrorList.pop();
-    console.log("utána: " + ErrorList.join("\n"))
+    //console.log("utána: " + ErrorList.join("\n"))
 }
 
 function refresh(){
