@@ -439,6 +439,18 @@ function showNext() {
         errors += 1;
         ErrorList.push(ShuffledCallsigns[currentCallsignIndex].icaoc + " - " + ShuffledCallsigns[currentCallsignIndex].calls + " - " + ShuffledCallsigns[currentCallsignIndex].contry);
         errorstxt.innerHTML = errors;
+
+        errorstxt.style.color = "red"; // Pirosra állítjuk
+        setTimeout(() => {
+            errorstxt.style.color = "black"; // Majd visszaállítjuk feketére
+        }, 330); // 500 ms múlva vált vissza feketére
+        setTimeout(() => {
+            errorstxt.style.color = "red";
+        }, 660);
+        setTimeout(() => {
+            errorstxt.style.color = "black";
+        }, 1000);
+
     }
 }
 
